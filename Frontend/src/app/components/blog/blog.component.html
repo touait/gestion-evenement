@@ -1,0 +1,200 @@
+
+   
+<app-navbar></app-navbar>
+<main>
+
+   <!------------------------ Site Title ---------------------->
+
+   <section class="site-title">
+       <div class="site-background" data-aos="fade-up" data-aos-delay="100">
+           <h3>Welcome to our blogs space</h3>
+           <h1>Amazing Place to read the news</h1>
+                                          <!-- App Search-->
+    
+       
+       <form class="app-search d-none d-lg-block">
+            <input type="text" class="form-control" placeholder="Search...">
+           <span class="bx bx-search-alt"></span>
+       </form>
+       
+       
+          
+       </div>
+   </section>
+
+   <!-- --------------------- Blog Carousel ----------------- -->
+
+   <!-- <section>
+       <div class="blog">
+           <div class="container">
+               <div class="owl-carousel owl-theme blog-post">
+
+                   <div class="blog-content" data-aos="fade-right" data-aos-delay="200" *ngFor="let blog of list">
+                       <img src="{{blog.file}}" alt="blog">
+                       <div class="blog-title">
+                           <h3>{{blog.title}}</h3>
+                           <button class="btn btn-blog">Fashion</button>
+                           <span>{{blog.date}}</span>
+                       </div>
+                   </div>
+                   <div class="owl-navigation">
+                    <span class="owl-nav-prev"><i class="fas fa-long-arrow-alt-left"></i></span>
+                    <span class="owl-nav-next"><i class="fas fa-long-arrow-alt-right"></i></span>
+                </div>
+               </div>
+               
+               
+           </div>
+       </div>
+   </section> -->
+
+   <!-- ----------x---------- Blog Carousel --------x-------- -->
+
+   
+
+   <!-- ---------------------- Site Content -------------------------->
+
+   <section class="container">
+       <div class="site-content">
+           <div class="posts">
+               
+               <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                   <div class="post-image">
+                       <div>
+                           <img src="assets/blogstyle/assets/Blog-post/blog2.png" class="img" alt="blog1">
+                       </div>
+                       <div class="post-info flex-row">
+                           <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
+                           <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;January 16, 2019</span>
+                           
+                       </div>
+                   </div>
+                   <div class="post-title">
+                       <a href="#">Why should boys have all the fun? it's the women who are making india an
+                           alcohol-loving contry</a><br>
+                       <button class="btn post-btn"><a href="detailblog" >Read More &nbsp; </a><i class="fas fa-arrow-right"></i></button>
+                   </div>
+               </div>
+               <hr>
+
+
+               <div class="post-content" data-aos="zoom-in" data-aos-delay="200" *ngFor="let blog of list">
+                   <div class="post-image">
+                       <div>
+                           <img src="{{blog.file}}" class="img"  alt="blog1">
+                       </div>
+                       <div class="post-info flex-row">
+                           <span><i class="fas fa-user text-gray"></i>&nbsp;&nbsp;Admin</span>
+                           <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{blog.date}}</span>
+                       </div>
+                   </div>
+                   <div class="post-title">
+                       <h2>{{blog.title}}</h2><br>
+                       <button class="btn post-btn"><a href="detailblog">Read More</a> &nbsp; <i class="fas fa-arrow-right"></i></button>
+                   </div>
+               </div>
+
+
+               <div class="pagination flex-row">
+                   <a href="#"><i class="fas fa-chevron-left"></i></a>
+                   <a href="#" class="pages">1</a>
+                   <a href="#" class="pages">2</a>
+                   <a href="#" class="pages">3</a>
+                   <a href="#"><i class="fas fa-chevron-right"></i></a>
+               </div>
+           </div>
+
+
+
+           <aside class="sidebar">
+               <div class="category">
+                   <h2>Category</h2>
+                   <ul class="category-list">
+                       <li class="list-items" data-aos="fade-left" data-aos-delay="100">
+                           <a href="#">sportif</a>
+                       </li>
+                       <li class="list-items" data-aos="fade-left" data-aos-delay="200">
+                           <a href="#">musical</a>
+                          
+                       </li>
+                       <li class="list-items" data-aos="fade-left" data-aos-delay="300">
+                           <a href="#">culturel</a>
+                           
+                       </li>
+                       <li class="list-items" data-aos="fade-left" data-aos-delay="400">
+                           <a href="#">autre</a>
+                           
+                       </li>
+                   </ul>
+               </div>
+
+
+
+
+
+
+               <div class="popular-post">
+                   <h2>Publictions</h2>
+                   
+                   <div class="post-content" data-aos="flip-up" data-aos-delay="400">
+                       <div class="post-image">
+                           <div>
+                               <img src="assets/blogstyle/assets/popular-post/m-blog-3.jpg" class="img" alt="blog1">
+                           </div>
+                           <div class="post-info flex-row">
+                               <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;title of pub</span>
+                           </div>
+                       </div>
+                       <div class="post-title">
+                           <a href="#">New data recording system to better analyse road accidents</a>
+                       </div>
+                   </div>
+
+                   <div class="post-content" data-aos="flip-up" data-aos-delay="500">
+                       <div class="post-image">
+                           <div>
+                               <img src="assets/blogstyle/assets/popular-post/m-blog-4.jpg" class="img" alt="blog1">
+                           </div>
+                           <div class="post-info flex-row">
+                               <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;title of pub</span>
+                           </div>
+                       </div>
+                       <div class="post-title">
+                           <a href="#">New data recording system to better analyse road accidents</a>
+                       </div>
+                   </div>
+
+                    <!--liste pub avec ts-->
+                   <div class="post-content" data-aos="flip-up" data-aos-delay="500" *ngFor="let publicite of liste">
+                       <div class="post-image">
+                           <div>
+                               <img src="{{publicite.file}}" class="img" alt="blog1">
+                           </div>
+                           <div class="post-info flex-row">
+                               <span><i class="fas fa-calendar-alt text-gray"></i>&nbsp;&nbsp;{{publicite.title}}</span>
+                           </div>
+                       </div>
+                       <div class="post-title">
+                           <a href="#">{{publicite.description}}</a>
+                       </div>
+                   </div>
+               </div>
+           </aside>
+           
+       </div>
+   </section>
+
+</main>
+
+
+
+
+
+
+
+<!-- --------------------------- Footer ---------------------------------------- -->
+<app-footer></app-footer>
+
+
+
+

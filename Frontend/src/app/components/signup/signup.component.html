@@ -1,0 +1,168 @@
+<section class="vh-150 bg-image"
+  style="background-image: url('https://www.festilyrique.fr/wp-content/uploads/2020/06/danny-howe-bn-D2bCvpik-unsplash-1024x683.jpg');">
+  <div class="  gradient-custom-3">
+    <div class="container py-5 h-70">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form  [formGroup]="RegisterForm" (ngSubmit)="Register()">
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+              
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>First Name</mat-label>
+                    <input type="text" matInput formControlName="nom" name="nom">
+                    <mat-error *ngIf="this.RegisterForm.get('nom')?.touched && this.RegisterForm.get('nom')?.hasError('required')">
+                      First Name is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div></div>
+                <div class="col-md-6 mb-4 pb-2">
+                <div class="form-outline">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Last Name</mat-label>
+                    <input type="text" matInput formControlName="prenom" >
+                    <mat-error *ngIf="this.RegisterForm.get('prenom')?.touched && this.RegisterForm.get('prenom')?.hasError('required')">
+                      Last Name is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div></div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+                  
+                <div class="form-outline">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Phone</mat-label>
+                    <input type="number" matInput formControlName="telephone" >
+                    <mat-error  *ngIf="this.RegisterForm.get('telephone')?.touched && this.RegisterForm.get('telephone')?.hasError('required')">
+                      phone is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                </div></div>
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="email" placeholder="Ex.pat@example.com" >
+                    <mat-error *ngIf="this.RegisterForm.get('email')?.touched && this.RegisterForm.get('email')?.hasError('required')">
+                      Email is required</mat-error>
+                    <mat-error *ngIf="this.RegisterForm.get('email')?.touched && this.RegisterForm.get('email')?.hasError('email')">
+                      Email must be a valid Email</mat-error>
+                  </mat-form-field>
+                </div></div></div>
+
+                <div class="form-outline ">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="Password" formControlName="pwd" [type]="showPassword ? 'text' : 'password'"  >
+                    <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                        {{showPassword?'visibility_off':'visibility'}}
+                    </mat-icon>
+                 
+                    <mat-error *ngIf="this.RegisterForm.get('pwd')?.touched && this.RegisterForm.get('pwd')?.hasError('required')">
+                      Password is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="this.RegisterForm.get('pwd')?.dirty && this.RegisterForm.get('pwd')?.errors?.['pattern']">
+                      <strong>Pattern Wrong</strong>
+                  </mat-error>
+                </mat-form-field>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput placeholder="Confirm Password" formControlName="confirmPassword" [type]="showPassword1 ? 'text' : 'password'" >
+                    <mat-icon matSuffix (click)="toggleRepeatPasswordVisibility()">
+                        {{showPassword1?'visibility_off':'visibility'}}
+                    </mat-icon>
+                 
+                    <mat-error *ngIf="this.RegisterForm.get('password')?.hasError('required')">
+                      Confirm Password is  <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="this.RegisterForm.get('confirmPassword')?.hasError('matching')">
+                      <strong>Password</strong> and <strong>Confirm Password</strong> must be same
+                  </mat-error>
+                </mat-form-field>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+                  
+                <div class="form-outline">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Role (required)</mat-label>
+                    <select matNativeControl required formControlName="role">
+                      <option label="--choose your role --"></option>
+                      <option value="user">user</option>
+                      <option value="event manager">event manager</option>
+                      <option value="blog manager">blog manager</option>
+                    </select>
+                    <mat-error *ngIf="this.RegisterForm.get('role')?.touched && this.RegisterForm.get('role')?.hasError('required')">
+                      role is required
+                    </mat-error>
+                   
+                  </mat-form-field>
+                  <div class="form-outline" >
+                  <div *ngFor="let progressInfo of progressInfos" >
+                    <span>{{ progressInfo.fileName }}</span>
+                    <mat-toolbar class="progress-bar" class="example-full-width" appearance="fill">
+                      <mat-progress-bar
+                        color="accent"
+                        [value]="progressInfo.value"
+                      ></mat-progress-bar>
+                      <span class="progress">{{ progressInfo.value }}%</span>
+                    </mat-toolbar>
+                  </div>
+                  
+                  <mat-form-field appearance="fill" class="example-full-width">
+                    <div >
+                      <mat-toolbar>
+                        <input matInput [value]="selectedFileNames.length ? selectedFileNames : 'Select Images'" formControlName="photo" />
+                  
+                       
+                      </mat-toolbar>
+                  
+                      <input
+                        type="file"
+                        id="fileInput"
+                        name="fileInput"
+                        accept="image/*" multiple 
+                        (change)="selectFiles($event)"
+                      />
+                    </div>
+                  </mat-form-field>
+                  
+                  <div>
+                    <img *ngFor='let preview of previews' [src]="preview" class="preview">
+                  </div>
+                  
+                  <div *ngIf="message.length" class="message">
+                    <ul *ngFor="let msg of message; let i = index">
+                      <li>{{ msg }}</li>
+                    </ul>
+                  </div>
+                  
+                 </div>
+                  
+</div></div></div>
+                <div class="d-flex justify-content-center">
+                  <button type="submit"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >Register</button>
+                </div>
+          
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a routerLink="/login"
+                    class="fw-bold text-body" ><u>Login here</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

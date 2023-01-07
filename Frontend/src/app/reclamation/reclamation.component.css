@@ -1,0 +1,9 @@
+.profile-button {
+    background: linear-gradient(to bottom right, #F94444, #DB9812);
+    box-shadow: none;
+    border: none
+  }
+  #complaintbtn{
+    background-color: red;
+    color: white;
+  }

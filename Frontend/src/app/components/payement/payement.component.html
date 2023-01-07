@@ -1,0 +1,165 @@
+<app-navbar></app-navbar>
+
+<div class="container" *ngFor="let cartItem of cart.items"  >
+    <div class="row m-0">
+        <div class="col-lg-7 pb-5 pe-lg-5">
+            <div class="row">
+                <div class="col-12 p-5">
+                    <img src="{{cartItem.event.image}}">
+                </div>
+                    <!-- Start reclamation  button
+                    <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Write to us</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3 " >
+
+        <div class="md-form mb-2">
+          <label ><i class="fas fa-tag prefix grey-text"></i>  Subject</label>
+          <input type="text" id="form32" class="form-control validate">
+        </div>
+
+        <div class="md-form">
+
+          <label ><i class='fas fa-pencil-alt'></i> Your message</label>
+          <textarea type="text" id="form8" class="md-textarea form-control" rows="4"></textarea>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-primary profile-button" >Send </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center">
+  <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm" id="complaintbtn">Complaint</a>
+</div> -->
+
+                    <!--end reclamation  button-->
+                <div class="row m-0 bg-light">
+                    <div class="col-md-4 col-6 ps-30 pe-0 my-4">
+                        <p class="text-muted">event-code</p>
+                        <p class="h5">{{cartItem.event.idE}}<span class="ps-1"></span></p>
+                    </div>
+                    <div class="col-md-4 col-6  ps-30 my-4">
+                        <p class="text-muted">place</p>
+                        <p class="h5 m-0">{{cartItem.event.lieu}}</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">date</p>
+                        <p class="h5 m-0">{{cartItem.event.date}}</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">type</p>
+                        <p class="h5 m-0">{{cartItem.event.category}}</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">age</p>
+                        <p class="h5 m-0">+18</p>
+                    </div>
+                    <div class="col-md-4 col-6 ps-30 my-4">
+                        <p class="text-muted">Price</p>
+                        <p class="h5 m-0">{{cartItem.event.prix}}Dt</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 p-0 ps-lg-4">
+            <div class="row m-0">
+                <div class="col-12 px-4">
+                    <div class="d-flex align-items-end mt-4 mb-2">
+                     
+                        <P class="ps-3 textmuted">1L</P>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <p class="textmuted">number</p>
+                        <p class="fs-14 fw-bold">{{cart.totalCount}}</p>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <p class="textmuted">prix</p>
+                        <p class="fs-14 fw-bold"><span class="fas fa-dollar-sign pe-1"></span>{{cart.totalPrice|currency}}</p>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <p class="textmuted">Shipping</p>
+                        <p class="fs-14 fw-bold">Free</p>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mb-3">
+                        <p class="textmuted fw-bold">Total</p>
+                        <div class="d-flex align-text-top ">
+                            <span class="fas fa-dollar-sign mt-1 pe-1 fs-14 "></span><span class="h4">{{cart.totalPrice|currency}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 px-0">
+                    <div class="row bg-light m-0">
+                        <div class="col-12 px-4 my-4">
+                            <p class="fw-bold">Payment detail</p>
+                        </div>
+                        <form #f="ngForm" >
+                        <div class="col-12 px-4">
+                            <div class="d-flex  mb-4">
+                                <span class="">
+                                    <p class="text-muted">Card number</p>
+                                    <input class="form-control1" type="text" 
+                                        placeholder="1234 5678 9012 3456" required minlength="16" name="cardNumber" [(ngModel)]="pay.cardNumber" #e="ngModel">
+                                        <div *ngIf="e.invalid && e.touched">
+                                            <p *ngIf="e.hasError('required')" id="RQ"> required</p>
+                                            <p *ngIf="e.hasError('minlength')" id="RQ">minlength must be 16 number</p>
+                                          </div>
+                                </span>
+                                <div class=" w-100 d-flex flex-column align-items-end">
+                                    <p class="text-muted">Expires</p>
+                                    <input class="form-control2" type="text" name="cardDate" placeholder="MM/YYYY" required [(ngModel)]="pay.cardDate" #a="ngModel">
+                                    <div *ngIf=" a.invalid && a.touched">
+                                        <p *ngIf="a.hasError('required')"   id="RQ"> required</p></div>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-5">
+                                <span class="me-5">
+                                    <p class="text-muted">Cardholder name</p>
+                                    <input class="form-control1" type="text" name="cardName"  [(ngModel)]="pay.cardName" #n="ngModel"
+                                        placeholder="Name" required>
+                                        <div *ngIf=" n.touched && n.invalid">
+                                            <p *ngIf="n.hasError('required')"   id="RQ"> required</p></div>
+                                </span>
+                                <div class="w-100 d-flex flex-column align-items-end">
+                                    <p class="text-muted">CVC</p>
+                                    <input class="form-control3" type="text" name="CVC" placeholder="XXX" required  [(ngModel)]="pay.CVC" #k="ngModel">
+                                    <div *ngIf=" k.touched && k.invalid">
+                                        <p *ngIf="k.hasError('required')"   id="RQ"> required</p></div>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    <div class="row m-0">
+                        <div class="col-12  mb-4 p-0">
+                            <button class="btn btn-primary " (click)="send(cartItem.event.idE)"[disabled]="f.invalid" >Purchase<span class="fas fa-arrow-right ps-2"></span></button>
+                            
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pt-5">
+        <h6 class="mb-0"><a routerLink="/pannier" class="text-body"><i
+              class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+      </div>
+</div>
+<app-footer></app-footer>
+
+
+<!-- <div class="class">
+    <p>{{event.name}}</p>
+</div> -->

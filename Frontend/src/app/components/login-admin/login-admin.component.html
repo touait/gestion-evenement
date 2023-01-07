@@ -1,0 +1,19 @@
+
+    <div class="container">
+        <div class="card card-container">
+           
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <h2>Admin</h2>
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" #f="ngForm" (ngSubmit)="loginadmin(f)">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="email" id="inputEmail" class="form-control" placeholder="username" name="email" #email="ngModel" ngModel>
+                <input type="password" id="inputPassword" class="form-control" placeholder="password" name="pwd" #pwd="ngModel" ngModel >
+          <div class="alert alert-danger" *ngIf="messageerror">
+          {{messageerror}}
+          </div>
+                <button class="btn btn-lg  btn-block btn-signin" type="submit">login</button>
+            </form><!-- /form -->
+       
+        </div><!-- /card-container -->
+    </div><!-- /container -->

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <style>
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 20px;
+            height: 100%;
+            table-layout: fixed;
+        }
+  
+        td {
+            border: 1px solid rgb(179, 194, 202);
+            text-align: center;
+            padding: 10px;
+        }
+  
+        tr:nth-child(even) {
+            background-color: #d9dddb;
+        }
+  
+        
+    </style>
+</head>
+  
+<body>
+ <span *ngFor="let data of datarec">
+    <button class="btnAdd"><a [routerLink]="[data.routLink]" mat-raised-button > Add New PUB</a></button>    
+ </span>
+   <hr>
+        <table class="table-layout">
+           
+			
+	<tr style="color:rgb(253, 253, 253); background-color:rgb(204, 185, 80); ">
+          <th width="50px" >Id</th>
+          <th width="150px">Category</th>
+          <th width="150px" >Title</th>
+          <th width="300px">description</th>
+          <th>media</th>
+            <th>Action</th>
+    </tr>
+			
+			
+            
+     <tr *ngFor="let publicite of liste">
+            <td>{{publicite.idP}}</td>
+            <td>{{publicite.category}}</td>
+            <td>{{publicite.title}}</td>
+             <td >{{publicite.description}}</td>
+             <td>{{publicite.file}}></td>
+  
+            <td class="action">
+            <a href="#" class="btnUpdate" [routerLink]="['/update',publicite.idP]"><i class="fa fa-pencil-alt"></i></a>
+             <a  routerLink="listepub" class="btnDelete"  (click)="deletePublicite(publicite)"><i class="fa fa-times"></i></a>
+                            
+            </td>
+         </tr>
+</table>
+</body>
+  
+</html>

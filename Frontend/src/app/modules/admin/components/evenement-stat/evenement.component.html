@@ -1,0 +1,90 @@
+
+
+
+  <div class="register-photo" >
+        <div class="form-container">
+            <div class="image-holder"></div>
+            <form method="post" #data="ngForm">
+                <h2 class="text-center"><strong>Ajouter</strong> un evenement.</h2>
+
+
+                <!-- <div class="form-group"><input class="form-control" type="text" name="id" placeholder="id"
+                  [(ngModel)]="event.id" #id="ngModel" required ></div>
+                  <div class="alert alert-danger" role="alert" *ngIf="id.invalid && id.touched">
+                    <p *ngIf="n.hasError('required')" >Id is required</p>
+                  </div> -->
+
+                <div class="form-group"><input class="form-control" type="text" name="name" placeholder="Nom event"
+                   ngModel
+                  #n="ngModel" required minlength="4"></div>
+                  <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+                    <p *ngIf="n.hasError('required')" >Name is required</p>
+                    <p *ngIf="n.hasError('minlength')"> minlength error</p>
+                  </div>
+
+                <div class="form-group"><input class="form-control" type="text" name="image" placeholder="image"
+                  ngModel #i="ngModel" required ></div>
+                  <div class="alert alert-danger" *ngIf="i.invalid && i.touched">
+                    <p *ngIf="n.hasError('required')" >Image is required</p>
+                  </div>
+
+                  <div class="form-group"><input class="form-control" type="text" name="lieu" placeholder="Lieu"
+                    ngModel #l="ngModel" required ></div>
+                  <div class="alert alert-danger" *ngIf="l.invalid && l.touched">
+                    <p *ngIf="n.hasError('required')" >Lieu is required</p>
+                  </div>
+
+                  <div class="form-group"><input class="form-control" type="date" name="date" placeholder="Date"
+                    ngModel #d="ngModel" required ></div>
+                  <div class="alert alert-danger" *ngIf="d.invalid && d.touched">
+                    <p *ngIf="n.hasError('required')" >Date is required! Please enter a valid Date</p>
+                  </div>
+
+                  <div class="form-group">
+                    <select class="form-control" type="text" name="category"
+                  placeholder="Category"
+                  ngModel #c="ngModel" required >
+                       <option value="Sportif">Sportif</option>
+                       <option value="Culturel">Culturel</option>
+                       <option value="Musical">Musical</option>
+                       <option value="Autres">Autres</option>
+                    </select></div>
+                  <div class="alert alert-danger" *ngIf="c.invalid && c.touched">
+                    <p *ngIf="n.hasError('required')" >Category is required</p>
+                  </div>
+
+                  <div class="form-group"><input class="form-control" type="text" name="description" placeholder="Description"
+                    ngModel #desc="ngModel" required minlength="15"></div>
+                  <div class="alert alert-danger" *ngIf="desc.invalid && desc.touched">
+                    <p *ngIf="n.hasError('required')" >Description is required</p>
+                    <p *ngIf="n.hasError('minlength')"> minlength error</p>
+                  </div>
+
+                  <div class="form-group"><input class="form-control" type="number" name="prix" placeholder="prix ticket"
+                    ngModel #p="ngModel" required ></div>
+                    <div class="alert alert-danger" *ngIf="p.invalid && p.touched">
+                      <p *ngIf="n.hasError('required')" >Price is required</p>
+                    </div>
+
+                    <div class="form-group"><input class="form-control" type="number" name="nbrT" placeholder="Nombre des tickets"
+                      ngModel #z="ngModel" required ></div>
+                      <div class="alert alert-danger" *ngIf="p.invalid && p.touched">
+                        <p *ngIf="n.hasError('required')" >Number of ticket is required</p>
+                      </div>
+
+                  <div class="form-group">
+                    <div class="form-check"><label class="form-check-label"><input class="form-check-input" type="checkbox">I agree to the license terms.</label></div>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary btn-block" type="submit" (click)="save(data.value)"   >Ajouter</button>
+                </div>
+
+              </form>
+        </div>
+    </div>
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+
+<div class="bg-light">
+  <div class="container">
+
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12"  *ngFor="let event of list">
+        <div class="card mb-5 shadow-sm">
+          <img src="{{event.image}}" class="img-fluid" />
+
+          <div class="card-body">
+            <div class="card-title">
+              <h2>{{event.name}}</h2>
+            </div>
+            <div class="card-text">
+              <p>
+                {{event.description}}
+              </p>
+              <p>
+                Date: {{event.date}}
+              </p>
+              <p>
+                Lieu: {{event.lieu}}
+              </p>
+              <p>
+                Prix ticket: {{event.prix}} Dt
+              </p>
+            </div>
+            <a [routerLink]=" ['/event',event.idE]"  class="btn btn-outline-primary rounded-0 float-end"
+              >Details</a
+            >
+            <!-- <a href="#" class="btn btn-outline-primary rounded-0 float-start"  [routerLink]="['/update',event.id]"
+            >Ajouter au pannier</a -->
+          <!-- > -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+<!-- event -->
+
+

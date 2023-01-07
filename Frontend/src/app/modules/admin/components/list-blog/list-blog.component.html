@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <style>
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 20px;
+            height: 100%;
+            table-layout: fixed;
+        }
+  
+        td {
+            border: 1px solid rgb(179, 194, 202);
+            text-align: center;
+            padding: 10px;
+        }
+  
+        tr:nth-child(even) {
+            background-color: #d9dddb;
+        }
+  
+        
+    </style>
+</head>
+  
+<body>
+ <span *ngFor="let data of datarec">
+
+    <!-- <div class="col-sm-12 col-xs-12" *ngFor="let data of datarec">
+        <a  [routerLink]="[data.routLink]"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]=" {exact: true} " class="btn btn-sm btn-primary pull-left"><i class="fa fa-plus-circle"></i> Add New</a>
+        <form class="form-horizontal pull-right">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+        </form>
+    </div> -->
+
+   <button class="btnAdd"><a [routerLink]="[data.routLink]" mat-raised-button > Add New blog </a></button>  
+ </span>
+   <hr>
+        
+  
+        <table class="table-layout">
+           
+			
+	<tr style="color:rgb(253, 253, 253); background-color:rgb(204, 185, 80); ">
+          <th width="50px">id</th>
+          <th width="100px">Category</th>
+          <th width="150px">Title</th>
+          <th>article</th>
+          <th width="100px">date</th>
+          <th >media</th>
+            <th>Action</th>
+    </tr>
+
+     <tr *ngFor="let blog of list">
+   
+  <td>{{blog.idB}}</td>
+  <td>{{blog.category}}</td>
+  <td>{{blog.title}}</td>
+  <td>{{blog.article}}</td>
+  <td>{{blog.date}}</td> 
+  <td>{{blog.file}}</td>
+     <td class="action">
+         
+         <a href="#" class="btnUpdate" [routerLink]="['/update',blog.idB]"><i class="fa fa-pencil-alt"></i></a>
+         <a routerLink="listblog" class="btnDelete"  (click)="deleteBlog(blog)"><i class="fa fa-times"></i></a>
+        
+         </td>
+    </tr>  
+    </table>
+   
+</body>
+  
+</html>

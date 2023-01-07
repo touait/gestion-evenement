@@ -1,0 +1,50 @@
+
+
+    <body>
+        <br>
+        <br>
+<div class="ticket" *ngFor="let cartItem of cart.items" id="print-me">
+	<div class="left">
+		<div class="image" >
+			<img [src]= "cartItem.event.image">
+			
+			
+		</div>
+		<div class="ticket-info">
+			<p class="date">
+				{{cartItem.event.date}}
+			</p>
+			<div class="show-name">
+				<h1>{{cartItem.event.name}}</h1>
+				<p>Prix :{{cartItem.event.prix}} DT</p>
+				<p>Lieu:{{cartItem.event.lieu}}</p>
+			</div>
+			
+			
+		</div>
+	</div>
+	<div class="right">
+		<p class="admit-one">
+			<span>ADMIT ONE</span>
+			<span>ADMIT ONE</span>
+			<span>ADMIT ONE</span>
+		</p>
+		<div class="right-info-container">
+			<div class="show-name">
+				
+			</div>
+			<div class="time">
+				<p>8:00 PM <span>TO</span> 11:00 PM</p>
+				<p>DOORS <span>@</span> 7:00 PM</p>
+			</div>
+			<div class="barcode">
+                <qr-code [value]="'ghjk'"></qr-code>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<br>
+<button printSectionId="print-me" ngxPrint class="btn btn-primary " type="button" >imprime<span class="fas fa-arrow-right ps-2"></span></button>
+</body>
+

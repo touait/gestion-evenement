@@ -1,0 +1,70 @@
+<div class="register-photo" >
+  <div class="form-container">
+      <div class="image-holder"></div>
+      <form method="post" #data="ngForm">
+          <h2 class="text-center"><strong>Ajouter</strong> un blog.</h2>
+
+
+          <div class="form-group">
+            <select class="form-control" type="text" name="category"
+          placeholder="Category"
+          ngModel #c="ngModel" required >
+               <option value="Sportif">Sportif</option>
+               <option value="Culturel">Culturel</option>
+               <option value="Musical">Musical</option>
+               <option value="Autres">Autres</option>
+            </select></div>
+          <div class="alert alert-danger" *ngIf="c.invalid && c.touched">
+            <p *ngIf="n.hasError('required')" >Category is required</p>
+          </div>
+
+
+          <div class="form-group"><input class="form-control" type="text" name="title" placeholder="title"
+             ngModel
+            #n="ngModel" required minlength="4"></div>
+            <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+              <p *ngIf="n.hasError('required')" >Name is required</p>
+              <p *ngIf="n.hasError('minlength')"> minlength error</p>
+            </div>
+
+            <div class="form-group"><input class="form-control" type="text" name="article" placeholder="article"
+              ngModel #desc="ngModel" required minlength="15"></div>
+            <div class="alert alert-danger" *ngIf="desc.invalid && desc.touched">
+              <p *ngIf="n.hasError('required')" >Description is required</p>
+              <p *ngIf="n.hasError('minlength')"> minlength error</p>
+            </div>
+
+
+            <div class="form-group"><input class="form-control" type="date" name="date" placeholder="Date"
+              ngModel #d="ngModel" required ></div>
+            <div class="alert alert-danger" *ngIf="d.invalid && d.touched">
+              <p *ngIf="n.hasError('required')" >Date is required! Please enter a valid Date</p>
+            </div>
+
+
+            
+          <div class="form-group"><input class="form-control" type="text" name="file" placeholder="your file"
+            ngModel #i="ngModel" required ></div>
+            <div class="alert alert-danger" *ngIf="i.invalid && i.touched">
+              <p *ngIf="n.hasError('required')" >file is required</p>
+            </div>
+
+
+          <div class="form-group">
+            <button class="btn btn-warning btn-block" type="submit" (click)="save(data.value)"   >Ajouter</button>
+          </div>
+
+        </form>
+  </div>
+</div>
+
+
+                  <!--uploed image ou video-->
+                  <!-- <img [src]="url" *ngIf="format==='image' && url" height="200"> <br/>
+                  <video [src]="url" *ngIf="format==='video' && url" height="200" controls></video> <br/>
+                  <div class="form-group"><input class="form-control" type="file" name="image" placeholder="image"
+                      (change)="onSelectFile($event)" ></div> -->
+   
+                
+          
+

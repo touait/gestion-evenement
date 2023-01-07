@@ -1,0 +1,97 @@
+<div class="card">
+  <div class="row align-items-stretch no-gutters contact-wrap " >
+    <div class="col-md-12">
+<div class="form">
+    <h1>{{title}}</h1>
+  
+  <form  [formGroup]="RegisterForm" (ngSubmit)="Register()" >
+    <div class="row">
+        <mat-form-field class="example-full-width" >
+            <mat-label>First Name</mat-label>
+            <input type="text" matInput formControlName="nom" name="nom" [(ngModel)]="user.nom">
+            <mat-error *ngIf="this.RegisterForm.get('nom')?.touched && this.RegisterForm.get('nom')?.hasError('required')">
+              First Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+    </div>
+    
+        <div class="row">
+            <mat-form-field class="example-full-width" >
+                <mat-label>Last Name</mat-label>
+                <input type="text" matInput formControlName="prenom" [(ngModel)]="user.prenom">
+                <mat-error *ngIf="this.RegisterForm.get('prenom')?.touched && this.RegisterForm.get('prenom')?.hasError('required')">
+                  Last Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+      
+        </div>
+    <div class="row">
+        <mat-form-field class="example-full-width" >
+            <mat-label>phone</mat-label>
+            <input type="number" matInput formControlName="telephone" [(ngModel)]="user.telephone">
+            <mat-error  *ngIf="this.RegisterForm.get('telephone')?.touched && this.RegisterForm.get('telephone')?.hasError('required')">
+              phone is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field class="example-full-width" >
+            <mat-label>Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Ex.pat@example.com" [(ngModel)]="user.email" >
+            <mat-error *ngIf="this.RegisterForm.get('email')?.touched && this.RegisterForm.get('email')?.hasError('required')">
+              Email is required</mat-error>
+            <mat-error *ngIf="this.RegisterForm.get('email')?.touched && this.RegisterForm.get('email')?.hasError('email')">
+              Email must be a valid Email</mat-error>
+          </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field >
+            <mat-label>Role (required)</mat-label>
+            <select matNativeControl required formControlName="role" [(ngModel)]="user.role">
+              <option label="--choose your role --"></option>
+              <option value="user">user</option>
+              <option value="event manager">event manager</option>
+              <option value="blog manager">blog manager</option>
+            </select>
+            <mat-error *ngIf="this.RegisterForm.get('role')?.touched && this.RegisterForm.get('role')?.hasError('required')">
+              role is required
+            </mat-error>
+           
+          </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field class="example-full-width" >
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" formControlName="pwd" [type]="showPassword ? 'text' : 'password'"  [(ngModel)]="user.pwd">
+            <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                {{showPassword?'visibility_off':'visibility'}}
+            </mat-icon>
+         
+            <mat-error *ngIf="this.RegisterForm.get('pwd')?.touched && this.RegisterForm.get('pwd')?.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="this.RegisterForm.get('pwd')?.dirty && this.RegisterForm.get('pwd')?.errors?.['pattern']">
+              <strong>Pattern Wrong</strong>
+          </mat-error>
+        </mat-form-field>
+    </div>
+    
+    <div class="row">
+    
+          <input type="file" #fileinput name="photo">
+          <button (click)="onFileUpload()">upload!</button>
+          <!-- <mat-error *ngIf="this.RegisterForm.get('photo')?.touched && this.RegisterForm.get('photo')?.hasError('required')">
+            Photo is <strong>required</strong>
+          </mat-error> -->
+       
+  </div>
+  
+      
+    <br>
+    <button class="btn btn-success" type="submit">
+      save
+    </button>
+  
+  </form>
+
+</div></div></div>

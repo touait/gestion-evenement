@@ -1,0 +1,33 @@
+
+
+#degrade-diagonal {
+    background: linear-gradient(to bottom right, #F94444, #DB9812);
+    color: white;
+    border-radius: 10px;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 30px;
+    font-size: 1rem;
+    text-align: center;
+  }
+  .img{
+    width: 15%;
+    margin-top: -4%;
+  
+  }
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .img-fluid{
+    height: 100%;
+  }
+  .text-muted{
+  margin-left: 75%;
+  
+  }

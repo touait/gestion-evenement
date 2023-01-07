@@ -1,0 +1,251 @@
+<app-navbar></app-navbar>
+<div class="container bootstrap snippets bootdeys">
+  <div class="row" id="user-profile" *ngFor="let user of list">
+      <div class="col-lg-3 col-md-4 col-sm-4">
+          <div class="main-box clearfix">
+              <h2>{{user.nom}} {{user.prenom}} </h2>
+              <div class="profile-status">
+                  <i class="fa fa-check-circle"></i> Online
+              </div>
+               <!--start profile pic-->
+               <div class="row1">
+              <div class="small-12 medium-2 large-2 columns">
+                <div class="circle">
+                  <img class="profile-pic" src="{{user.photo}}">
+           
+                </div>
+                <div class="p-image">
+                  <i class="fa fa-camera upload-button"></i>
+                   <input class="file-upload" type="file" accept="image/*"/>
+                </div>
+                </div>
+             </div>
+              <div class="profile-label">
+                  <span class="label label-danger">Admin</span>
+              </div>
+
+              <div class="profile-message-btn center-block text-center">
+                  <button  class="btn btn-danger" id="btndelete">
+                      <i class="fa fa-trash"></i> delete profil
+                  </button>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-lg-9 col-md-8 col-sm-8">
+          <div class="main-box clearfix">
+              <div class="profile-header">
+                  <h3><span>User info</span></h3>
+                
+              </div>
+
+              <div class="row profile-user-info">
+               
+                 <div class="col-sm-8" >
+                    <table>
+                        <tr>
+                            <td>
+                                First Name:
+                            </td>
+                            <td id="espacecol">
+                                    {{user.nom}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Last Name:
+                            </td>
+                            <td id="espacecol">
+                                    {{user.prenom}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Email:
+                            </td>
+                            <td>
+                               {{user.email}} 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                phone:
+                            </td>
+                            <td>
+                               {{user.telephone}} 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Role:
+                            </td>
+                            <td>
+                                {{user.role}}
+                            </td>
+                        </tr>
+                    </table>
+                   </div>
+            
+              </div>
+
+              <div class="tabs-wrapper profile-tabs">
+                  <ul class="nav nav-tabs" >
+                      <li class="active"><a href="#tab-activity" data-toggle="tab" >Edit profil</a></li>
+                      <li id="espace"><a href="#tab-chat" data-toggle="tab">Chat</a></li>
+                  </ul>
+
+                  <div class="tab-content">
+                      <div class="tab-pane fade in active" id="tab-activity">
+
+                          <div class="table-responsive">
+                              <table class="table">
+                                <div class="p-6 py-5">
+                                  <div class="d-flex justify-content-between align-items-center mb-3">
+                                      <h4 class="text-right">Profile Settings</h4>
+                                  </div>
+                                  <div class="row mt-2">
+                                      <div class="col-md-6"> <mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>First Name</mat-label>
+                                        <input type="text" matInput [formControl]="firstnameFormControl" >
+                                        <mat-error *ngIf="firstnameFormControl.hasError('required')">
+                                          First Name is <strong>required</strong>
+                                        </mat-error>
+                                      </mat-form-field></div>
+                                      <div class="col-md-6"><mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Last Name</mat-label>
+                                        <input type="text" matInput [formControl]="lastnameFormControl" >
+                                        <mat-error *ngIf="lastnameFormControl.hasError('required')">
+                                          Last Name is <strong>required</strong>
+                                        </mat-error>
+                                      </mat-form-field></div>
+                                  </div>
+                                  <div class="row mt-3">
+                                      <div class="col-md-12"><mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Email</mat-label>
+                                        <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex.pat@example.com" >
+                                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                          Please enter a valid email address
+                                        </mat-error>
+                                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                                          Email is <strong>required</strong>
+                                        </mat-error>
+                                      </mat-form-field></div>
+                                      <div class="col-md-12"><mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Telephone</mat-label>
+                                        <input type="number" matInput [formControl]="telephoneFormControl" >
+                                        <mat-error *ngIf="telephoneFormControl.hasError('required')">
+                                          telephone is <strong>required</strong>
+                                        </mat-error>
+                                      </mat-form-field></div>
+                                      <div class="col-md-12"><mat-form-field class="example-full-width" appearance="fill">
+                                        <mat-label>Password</mat-label>
+                                        <input matInput placeholder="Password" [formControl]="password" [type]="showPassword ? 'text' : 'password'"  >
+                                        <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                                            {{showPassword?'visibility_off':'visibility'}}
+                                        </mat-icon>
+                                     
+                                        <mat-error *ngIf="password.hasError('required')">
+                                          Password is <strong>required</strong>
+                                        </mat-error>
+                                        <mat-error *ngIf="password.dirty && password.errors?.['pattern']">
+                                          <strong>Pattern Wrong</strong>
+                                      </mat-error>
+                                    </mat-form-field></div>
+                                  
+                                  </div>
+                                
+                                  <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                              </div>
+                              </table>
+                          </div>
+
+                      </div>
+
+                     
+                      <div class="tab-pane fade" id="tab-chat">
+                          <div class="conversation-wrapper">
+                              <div class="conversation-content">
+                                  <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 340px;">
+                                      <div class="conversation-inner" style="overflow: hidden; width: auto; height: 340px;">
+
+                                          <div class="conversation-item item-left clearfix">
+                                              <div class="conversation-user">
+                                                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
+                                              </div>
+                                              <div class="conversation-body">
+                                                  <div class="name">
+                                                      Ryan Gossling
+                                                  </div>
+                                                  <div class="time hidden-xs">
+                                                      September 21, 2013 18:28
+                                                  </div>
+                                                  <div class="text">
+                                                      I don't think they tried to market it to the billionaire, spelunking, base-jumping crowd.
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="conversation-item item-right clearfix">
+                                              <div class="conversation-user">
+                                                  <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
+                                              </div>
+                                              <div class="conversation-body">
+                                                  <div class="name">
+                                                      {{user.nom}} {{user.prenom}}
+                                                  </div>
+                                                  <div class="time hidden-xs">
+                                                      September 21, 2013 12:45
+                                                  </div>
+                                                  <div class="text">
+                                                      Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you.
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      
+                                         
+                                          <div class="conversation-item item-right clearfix">
+                                              <div class="conversation-user">
+                                                  <img src="{{user.photo}}" class="img-responsive"  alt="">
+                                              </div>
+                                              <div class="conversation-body">
+                                                  <div class="name">
+                                                     {{user.nom}} {{user.prenom}}
+                                                  </div>
+                                                  <div class="time hidden-xs">
+                                                      September 21, 2013 12:45
+                                                  </div>
+                                                  <div class="text">
+                                                      Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you.
+                                                  </div>
+                                              </div>
+                                          </div>
+
+                                      </div>
+                                      <div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; background: rgb(0, 0, 0);"></div>
+                                      <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div>
+                                  </div>
+                              </div>
+                              <div class="conversation-new-message">
+                                  <form>
+                                      <div class="form-group">
+                                          <textarea class="form-control" rows="2" placeholder="Enter your message..."></textarea>
+                                      </div>
+
+                                      <div class="clearfix">
+                                          <button type="submit" class="btn btn-success pull-right">Send message</button>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+          </div>
+      </div>
+  </div>
+</div>
+<app-footer></app-footer>
+
+
+
+

@@ -1,0 +1,53 @@
+<!-- <p>ticket-stat works!</p>
+<table >
+    <tr *ngFor="let item of list">
+        <td>{{item.idO}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.prixt}}</td>
+        <td>{{item.nom}}</td>
+    </tr>
+</table> -->
+<div class="container">
+                      
+                                
+    <div class="row">
+    <div class="col-12">
+        <div class="card">
+           
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>
+                                   
+                                </th>
+                                <th scope="col">id</th>
+                                <th scope="col">name</th>
+                                <th scope="col">description</th>
+                                <th scope="col">quantity</th>
+                                <th scope="col">user name</th>
+                            </tr>
+                        </thead>
+                        <tbody class="customtable">
+                            <tr *ngFor="let item of list">
+                                <th>
+                                    <label class="customcheckbox">
+                                        <input type="checkbox" class="listCheckbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </th>
+                                <td>{{item.id}}</td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.description}}</td>
+                                <td>{{item.quantity}}</td>
+                                <td>{{item.nom}}</td>
+                            </tr>
+                                         </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>
+</div>
+
+   </div> 

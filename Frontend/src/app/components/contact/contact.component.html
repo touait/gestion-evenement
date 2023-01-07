@@ -1,0 +1,86 @@
+
+<app-navbar></app-navbar>
+<button type="button" class="btn btn-dark rounded-0 py-2 px-9" id="btnc" routerLink="/contact">Complaint</button>
+<button type="button" class="btn btn-dark rounded-0 py-2 px-9" id="btnf" routerLink="/suivi">followed</button>
+<div class="collapse1" id="collapseExample1">
+  <div class="content">
+      
+      <div class="card">
+        <div class="row align-items-stretch no-gutters contact-wrap " >
+          <div class="col-md-12">
+            <div class="form h-100">
+              <h3>Get Started your Complaint </h3><br>
+              <form  [formGroup]="RegisterForm" (ngSubmit)="addrec()">
+                
+            
+                <div class="row">
+                  <div class="col-md-6 mb-4 pb-2">
+                  <mat-form-field >
+                    <mat-label>Subject</mat-label>
+                    <input type="text" matInput formControlName="Subject" name="Subject">
+                    <mat-error *ngIf="this.RegisterForm.get('Subject')?.touched && this.RegisterForm.get('Subject')?.hasError('required')">
+                      Subject is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+                  </div>
+                  <div class="col-md-6 mb-4 pb-2">
+                  <mat-form-field  >
+                    <mat-label>Category (required)</mat-label>
+                    <select matNativeControl required formControlName="Category">
+                      <option label="--choose your Category --"></option>
+                      <option value="Event">Event</option>
+                      <option value="Ticket">Ticket</option>
+                      <option value="Blog">Blog</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <mat-error *ngIf="this.RegisterForm.get('Category')?.touched && this.RegisterForm.get('Category')?.hasError('required')">
+                      Category is required
+                  </mat-error>
+                  
+              
+                </mat-form-field></div>
+               </div>
+                    <mat-form-field class="example-full-width"  >
+                      <mat-label>Message</mat-label>
+                      <input type="text" matInput formControlName="msgenvoyer" >
+                      <mat-error *ngIf="this.RegisterForm.get('msgenvoyer')?.touched && this.RegisterForm.get('msgenvoyer')?.hasError('required')">
+                        Message <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+               
+                 
+               
+              
+                <div class="row" >
+                  <div class="col-md-6 mb-4 pb-2" hidden>
+                  
+                <div class="form-outline">
+                  <mat-form-field class="example-full-width" appearance="fill">
+                    <mat-label>msgreception</mat-label>
+                    <input  matInput  value="{{msgreception}}" >
+                    
+                  </mat-form-field>
+                </div></div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit" id="Complaintbtn" class="btn btn-dark rounded-0 py-2 px-4" >Send your Complaint </button>
+                </div>
+          
+   </form>
+
+            
+  
+              <div id="form-message-warning mt-4"></div> 
+              <div id="form-message-success">
+                Your message was sent, thank you!
+              </div>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,54 @@
+.search{
+    padding: 10px;
+    color: #eee;
+    background: linear-gradient(to bottom right,#e2761d,#e92806);
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.search :is(input , button){
+    color: inherit;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.search__input{
+    width: 0;
+    transition: width .5s;
+
+}
+.search__btn{
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.search:focus-within input{
+    width: 200px;
+
+}
+
+::placeholder{
+    color: inherit;
+}
+
+img{
+    width: 45%;
+   
+    margin-top: -5%;
+}
+h1{
+    margin-left: 1%;
+}
+
+a span{
+    background: #ff4d4d;
+    color: white;
+    padding: 0.1rem 0.45rem;
+    border-radius: 100rem;
+    font-size: 0.9rem;
+}

@@ -1,0 +1,71 @@
+
+
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>List Of Complaints</h1>
+    <nav>
+   
+    </nav>
+  </div><!-- End Page Title -->
+
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+          
+
+            <!-- Table with stripped rows -->
+            <table class="table table-striped">
+              <thead>
+                <tr>
+              
+                  <th scope="col">#</th>
+                  <th scope="col">Subject</th>
+                  <th scope="col">Category Complaint</th>
+                  <th scope="col">Date Complaint</th>
+                  <th scope="col">Message</th>
+                  <th scope="col">Status</th>
+
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let reclamation of list">
+                  <th scope="row">{{reclamation.idRec}}</th>
+                  
+                  <td>{{reclamation.Subject}}</td>
+                  <td>{{reclamation.Category}}</td>
+                  <td>{{reclamation.daterec}}</td> 
+                  <td>{{reclamation.msgenvoyer}}</td>
+                  <td><li class="list-group-item"><i class="bi bi-exclamation-octagon me-1 text-danger"></i><select><option label="in process"></option>
+                    <option value="user">Done</option></select></li></td>
+
+                 
+                  <td>  <div class="btn btn-warning rounded-pill" id="degrade-diagonal">Process complaint</div></td>
+                  
+
+                  
+                </tr>
+                
+              </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+
+          </div>
+        </div>
+
+
+
+      </div>
+
+
+    </div>
+  </section>
+
+</main><!-- End #main -->
+
+
+

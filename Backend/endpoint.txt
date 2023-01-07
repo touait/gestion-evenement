@@ -1,0 +1,21 @@
+  post  :   http://localhost:3000/blog/ajouter
+   put  :   http://localhost:3000/blog//update/:id
+   delete :   http://localhost:3000/blog//delete/:id
+    get    : http://localhost:3000/blog//afficher/:id
+  get    : http://localhost:3000/blog//afficher
+
+
+
+
+
+
+ post  :   http://localhost:3000/publicite/ajouter
+   put  :   http://localhost:3000/publicite/update/:id
+   delete :   http://localhost:3000/publicite/delete/:id
+    get    : http://localhost:3000/publicite/afficher/:id
+  get    : http://localhost:3000/publicite/afficher
+
+
+
+
+

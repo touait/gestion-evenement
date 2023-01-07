@@ -1,0 +1,82 @@
+.gradient-custom-3 {
+    /* fallback for old browsers */
+    background: #F94444;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(87, 70, 70, 0.5), rgba(109, 95, 64, 0.5));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(91, 66, 66, 0.5), rgba(58, 53, 43, 0.5))
+    }
+    .gradient-custom-4 {
+    /* fallback for old browsers */
+    background: #DB9812;
+    color: white;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgb(248, 182, 50), rgb(238, 96, 96));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgb(253, 192, 68), rgb(241, 78, 78))
+    }
+  .example-full-width{
+    width: 100%;
+  }
+  .progress-bar {
+    padding: 0;
+  }
+  
+  .progress {
+    width: 50px;
+  }
+  
+  .mat-input-element {
+    font-size: medium;
+    font-weight: 200;
+  }
+  
+  #fileInput {
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+  }
+  
+  .mat-toolbar-single-row {
+    height: auto !important;
+    background: transparent;
+    padding: 0;
+  }
+  
+  .mat-toolbar-single-row button {
+    width: 100px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  .message {
+    background-color: #ddd;
+    padding: 15px;
+    color: #333;
+    border: #aaa solid 1px;
+    border-radius: 4px;
+    margin: 15px 0;
+  }
+  
+  .preview {
+    max-width: 200px;
+    vertical-align: middle;
+  }
+  
+  .list-card {
+    margin-top: 20px;
+  }
+  
+  .list-item {
+    margin-bottom: 20px;
+  }

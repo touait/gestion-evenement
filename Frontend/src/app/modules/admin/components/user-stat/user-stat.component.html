@@ -1,0 +1,47 @@
+<div class="d-grid gap-2 d-md-flex justify-content-md-end" *ngFor="let data of datarec">
+    <a class="btn btn-info me-md-2" type="button" [routerLink]="[data.routLink]"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]=" {exact: true} ">ADD user <i class="far fa-user pr-2" aria-hidden="true"></i> </a>
+    
+  </div>
+
+
+<div class="row">
+    <div class="col-md-3 " *ngFor="let user of list">
+      <div class="card" style="width: 20rem;">
+        
+        <img src="{{user.photo}}" class="card-img-top" alt="..." height="200">
+        <div class="card-body">
+          
+          <h5 class="card-title">{{user.nom}} {{user.prenom}}</h5> 
+          <p class="card-text">
+           Email:{{user.email}}
+           <br>
+           Phone: {{user.telephone}}
+           <br>
+           Role :{{user.role}}
+          </p>
+       
+          &nbsp;
+          
+          <a class="btn btn-sm btn-danger" (click)="deleteuser(user)"><i class="bi bi-person-dash"></i>
+            
+            delete
+          </a>
+          <a class="btn btn-sm btn-warning" ><a [routerLink]="['/admin/user/updateuser/',user.idU]">update</a></a>
+          <div class="third mt-4">
+
+          <a class="btn btn-outline-dark btn-block"><i class="fa fa-clock-o"></i> Block Now</a>
+         
+         
+         </div>
+         
+        </div>
+      </div>
+    </div>
+  
+  
+  </div>
+
+  
+  

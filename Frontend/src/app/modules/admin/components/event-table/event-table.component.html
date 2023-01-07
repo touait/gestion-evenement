@@ -1,0 +1,50 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+            <div class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col col-sm-3 col-xs-12">
+                            <h4 class="title">Events <span>List</span></h4>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="panel-body table-responsive" >
+                    <table class="table" >
+                        <thead >
+                            <tr>
+                                <th> Id </th>
+                                <th> Nom </th>
+                                <th> Lieu </th>
+                                <th> description </th>
+                                <th> date </th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let event of list">
+                                <td>{{event.idE}}</td>
+                                <td>{{event.name}}</td>
+                                <td>{{event.lieu}}</td>
+                                <td>{{event.description}}</td>
+                                <td>{{event.date}}</td>
+                                <td>
+                                    <ul class="action-list">
+                                        <li><a href="#" data-tip="edit"><i class="fa fa-edit"></i></a></li>
+                                        <li><button routerLink="eventTable" data-tip="delete" (click)="Delete(event)"><i class="fa fa-trash"></i></button></li>
+                                    </ul>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="form-group">
+                            <button routerLink="/admin/event" class="btn btn-warning" type="submit"  >Ajouter un evenement</button>
+                          </div>
+
